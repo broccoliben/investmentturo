@@ -1,0 +1,75 @@
+body {
+    background-color: #281100;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.common {
+    background-color: #cccccc;
+    border: solid #f6e1c5;
+    position: absolute;
+}
+
+
+.explanation {
+     top: 150px;
+    left: 20px;
+    right: 20px;
+    height: 870px;
+    padding: 10px;
+    z-index: 2;
+    border-bottom: solid, 1px, #cccccc;
+    background-color: #f6e1c5;
+    z-index: 1
+}
+
+.rounded {
+  border-radius: var(--bs-border-radius);
+}
+
+.center {
+    text-align: center;
+}
+
+.fancy-list {
+  list-style-type: decimal;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.fancy-list ul {
+  font-size: 1em;       /* resets the size */
+  font-weight: normal;  /* turns off bold */
+}
+
+.header {
+    background-color: #f6e1c5;
+    height: 75px;
+    top: 30px;
+    padding-top: 30px;
+    font-size: xx-large;
+    color: black;
+    text-align: center;
+}
+.header a {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    
+}
+.header a:hover {
+    text-decoration: underline;
+}
+.casestudy {
+    height 500px;
+    top: 1500px;
+    background-color: #f6e1c5;
+}
+
+.img {
+    z-index: 2
+}
+
+.tableau {
+    top: 50%;
+    color: #281100;
+}
