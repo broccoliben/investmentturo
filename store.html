@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>How Much Will you Make?</title>
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/game.css" rel="stylesheet" />
+    </head>
+    <body>
+        <header>
+            <h1 class="site-heading text-center text-faded d-none d-lg-block">
+                <span class="site-heading-upper text-primary mb-3">How Much Will You Make?</span>
+                <span class="site-heading-lower">Get your dream with us!</span>
+            </h1>
+        </header>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand text-uppercase fw-bold d-lg-none" href="index.html">Bennett Holdings LLC</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="index.html">Home</a></li>
+                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="investment.html">Investment Strategy</a></li>
+                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="meettheteam.html">Meet the Team</a></li>
+                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="store.html">Get Involved</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <section class="page-section cta">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-9 mx-auto">
+                        <div class="cta-inner bg-faded text-center rounded">
+
+  <h1>What Can You Buy in 5 Years?</h1>
+  <p>Enter how much you plan to invest:</p>
+
+  <input type="number" id="investment" placeholder="Enter amount in $">
+  <br>
+  <button onclick="calculateReturns()">See the Future</button>
+
+  <div id="result"></div>
+
+  <hr>
+
+  <h2>Contact Us</h2>
+  <form id="contact-form" onsubmit="return handleContactSubmit(event)">
+    <input type="text" id="name" placeholder="Your Name" required />
+    <input type="email" id="email" placeholder="Your Email" required />
+    <textarea id="message" rows="4" placeholder="Your Message" required></textarea>
+    <button type="submit">Send</button>
+  </form>
+  <div id="contact-message"></div>
+
+  <script>
+    function calculateReturns() {
+      const investment = parseFloat(document.getElementById('investment').value);
+      const rate = 0.12;
+      const years = 5;
+
+      const resultDiv = document.getElementById('result');
+      resultDiv.innerHTML = "";
+
+      if (!investment || investment <= 0) {
+        resultDiv.innerHTML = "<p>Please enter a valid investment amount.</p>";
+        return;
+      }
+
+      const futureValue = investment * Math.pow(1 + rate, years);
+      const rounded = futureValue.toFixed(2);
+
+      let suggestions = "";
+      let imageHTML = "";
+
+      if (futureValue < 15000) {
+        suggestions = "You could buy a used Honda Accord or take a luxury vacation!";
+        imageHTML = '<img src="assets/img/vacation.jpg" alt="vacation" class="car-icon">';
+      } 
+        else if (futureValue < 30000) {
+        suggestions = "You could buy a brand-new Toyota Camry!";
+        imageHTML = '<img src="assets/img/camry.jpg" alt="Camry" class="car-icon">';
+      } 
+        else if (futureValue < 50000) {
+        suggestions = "You could buy a brand-new Chevy Camaro!";
+        imageHTML = '<img src="assets/img/chevycamaro.jpg" alt="Chevy Camaro" class="car-icon">';
+      } 
+        else if (futureValue < 80000) {
+        suggestions = "You could buy a brand-new Corvette C8!";
+        imageHTML = '<img src="assets/img/corvette.jpg" alt="corvette" class="car-icon">';
+      } 
+        else if (futureValue < 150000) {
+        suggestions = "You could buy a brand-new BMW M8 convertible!";
+        imageHTML = '<img src="assets/img/bmw.jpg" alt="BMW M8" class="car-icon">';
+      } 
+        else if (futureValue < 250000) {
+        suggestions = "You could buy a 2014 Ferrari F12 Berlinetta!";
+        imageHTML = '<img src="assets/img/ferrari.jpg" alt="Ferarri" class="car-icon">';
+      } 
+        else if (futureValue < 400000) {
+        suggestions = "You could buy a 2022 Mclaren 720S!";
+        imageHTML = '<img src="assets/img/mclaren.jpg" alt="Mclaren" class="car-icon">';
+      } 
+        else {
+        suggestions = "You have created life changing wealth for your family. Congratulations!!";
+        imageHTML = '<img src="assets/img/millionare.jpg" alt="Millionare" class="car-icon">';
+      }
+
+      resultDiv.innerHTML = `
+        <p>In 5 years, your investment could grow to <strong>$${rounded}</strong>.</p>
+        <p>${suggestions}</p>
+        ${imageHTML}
+      `;
+    }
+
+    function handleContactSubmit(event) {
+      event.preventDefault();
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+
+      // Here you'd normally send the data to a server
+
+      document.getElementById('contact-message').innerText =
+        "Thanks for reaching out! We will contact you soon!!";
+
+      document.getElementById('contact-form').reset();
+      return false;
+    }
+  </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="footer text-faded text-center py-5">
+            <div class="container"><p class="m-0 small">Copyright &copy; Bennett Holdings LLC 2025</p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>

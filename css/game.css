@@ -1,0 +1,46 @@
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+      background-color: #f7f7f7;
+    }
+
+    input, button, textarea {
+      padding: 10px;
+      margin-top: 10px;
+      font-size: 16px;
+      width: 300px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    #result {
+      margin-top: 30px;
+      font-size: 18px;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .car-icon {
+      width: 200px;
+      height: auto;
+      margin: 10px auto;
+      animation: slideUp 1s ease-in-out;
+      display: block;
+    }
+
+    #contact-message {
+      margin-top: 20px;
+      font-size: 18px;
+      color: green;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
